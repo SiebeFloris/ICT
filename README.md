@@ -208,7 +208,7 @@ while True:
 ```
 Nadat wij deze code weer succesvol hebben kunnen uitvoeren zijn we begonnen aan het maken van de code die gebruik zal maken van de ulrasonesensor. Deze code zou er voor moeten zorgen dat de robot zelfstandig (zonder lijn) zich kan weten te manoeuvreren. dit is ons jammer genoeg niet gelukt, omdat we de ulrasonesensor niet aan de praat kregen.
 
-## De dingen die we volgende keer beter kunnen doen zijn:
+### De dingen die we volgende keer beter kunnen doen zijn:
 
 eerder beginnen aan het expirimenteren met de ulrasonesensor, want die kregen we niet aan de praat en als we meer tijd er in haddeb gestoken denk ik dat we het uiteindelijk wel haddeb uitgevogelt.
 
