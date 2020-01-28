@@ -6,7 +6,7 @@ welkom op mijn projecten pagina van ICT in de wolken.
 Lucien en ik hebben het project Microbit gekozen om in blok 2 te maken.
 Ons doel van dit project was om een zelf rijdende robot te maken die om obstakels heen kon manoeuvreren. 
 Het eerste wat we hadden gedaan is een beetje met de robot spelen en kleine codes schrijven om te kijken wat dit met de robot zou doen.
-daarna hebben we een code geschreven die er voor zorgt dat de lampjes van de robot rood zijn als je je hand voor de lichtscencor houd en groen zijn als er niks voor zit.
+daarna hebben we een code geschreven die er voor zorgt dat de lampjes van de robot rood zijn als je je hand voor de lichtsensor houd en groen zijn als er niks voor zit.
 
 dit is de code die we daarbij hebben geschreven:
 ```
