@@ -7,7 +7,6 @@ Lucien en ik hebben het project Microbit gekozen om in blok 2 te maken.
 Ons doel van dit project was om een zelf rijdende robot te maken die om obstakels heen kon manoeuvreren. 
 Het eerste wat we hadden gedaan is een beetje met de robot spelen en kleine codes schrijven om te kijken wat dit met de robot zou doen.
 De eerste grote code die we hebben geschreven is een code waardoor de robot een lijn kon volgen.
-
 Dit is de code die we hebben gemaakt:
 ```
 from microbit import *
