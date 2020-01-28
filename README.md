@@ -3,6 +3,9 @@
 welkom op mijn projecten pagina van ICT in de wolken.
 
 ### Microbit
+
+Dit project heb ik samen gemaakt met: [Lucien Kerssens](https://lucienpemberton.github.io/ICT/)
+
 Lucien en ik hebben het project Microbit gekozen om in blok 2 te maken.
 Ons doel van dit project was om een zelf rijdende robot te maken die om obstakels heen kon manoeuvreren. 
 Het eerste wat we hadden gedaan is een beetje met de robot spelen en kleine codes schrijven om te kijken wat dit met de robot zou doen.
