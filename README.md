@@ -213,3 +213,10 @@ Nadat wij deze code weer succesvol hebben kunnen uitvoeren zijn we begonnen aan 
 eerder beginnen aan het expirimenteren met de ulrasonesensor, want die kregen we niet aan de praat en als we meer tijd er in haddeb gestoken denk ik dat we het uiteindelijk wel haddeb uitgevogelt.
 
 voor de rest vind ik dat we dit project goed hebben gedaan en iets meer te weten zijn gekomen hoe je de Microbot kan programmeren met Python.
+
+## Machine learning 
+
+Wij hebben dit blok gekozen voor het project machine learning in dit project gaan Lucien en ik een AI maken die kan leren Flappy bird te spelen. We zijn begonnen met het maken van het spel Flappy bird en daarna met het implanteren van de Neat AI. Het maken van Flappy bird ging met vallen en opstaan, maar we kwamen er uiteindelijk natuurlijk wel uit. Daarna hebben wij de Neat AI in onze flappy bird geimplanteerd. Dit was voor ons allebij iets nieuws, maar raar genoeg ging dit super makkelijk dit is de code die we gemaakt hebben:
+~~
+
+
