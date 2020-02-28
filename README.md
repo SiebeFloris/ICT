@@ -217,7 +217,7 @@ voor de rest vind ik dat we dit project goed hebben gedaan en iets meer te weten
 ## Machine learning 
 
 Wij hebben dit blok gekozen voor het project machine learning in dit project gaan Lucien en ik een AI maken die kan leren Flappy bird te spelen. We zijn begonnen met het maken van het spel Flappy bird en daarna met het implanteren van de Neat AI. Het maken van Flappy bird ging met vallen en opstaan, maar we kwamen er uiteindelijk natuurlijk wel uit. Daarna hebben wij de Neat AI in onze flappy bird geimplanteerd. Dit was voor ons allebij iets nieuws, maar raar genoeg ging dit super makkelijk dit is de code die we gemaakt hebben:
-~~
+```
 import pygame
 import neat
 import time
@@ -489,6 +489,6 @@ if _name_ == "_main_":
     local_dir = os.path.dirname(_file_)
     config_path = os.path.join(local_dir, "config-feedforward.txt")
     run(config_path)
-~~
+```
 
 
