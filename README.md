@@ -502,9 +502,6 @@ In blok 4 moesten we een project maken dat te maken had met data en corona. Luci
 ```
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
-using UnityEngine;
-using UnityEngine.UI;
 using SimpleJSON;
 using System;
 
