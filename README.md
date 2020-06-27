@@ -495,7 +495,7 @@ if _name_ == "_main_":
 ```
 
 
-###Corona kaart
+### Corona kaart
 
 In blok 4 moesten we een project maken dat te maken had met data en corona. Lucien en ik hadden daaral gelijk een heel duidelijk idee bij. We wouden een kaart maken die in een soort timelapse liet zien hoe corona zich over de wereld heeft verspreid. We hebben dit gedaan door een hoogkwaliteit kaart te downloaden en vervolgens een Json file te downloaden met alle data in verband met corona die we eventueel nodig zouden hebben. Daarna hebben we voor elk land de coördinaten op de kaart gegeven. daarna moesten we er nog voor zorgen dat er een timelapse kwam en dat de cirkels van grootte en kleur veranderden. dat hebben we gedaan met deze code:
 
