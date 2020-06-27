@@ -497,4 +497,178 @@ if _name_ == "_main_":
 
 ###Corona kaart
 
-In blok 4 moesten we een project maken dat te maken had met data en corona. Lucien en ik hadden daaral gelijk een heel duidelijk idee bij. We wouden een kaart maken die in een soort timelapse liet zien hoe corona zich over de wereld heeft verspreid.
+In blok 4 moesten we een project maken dat te maken had met data en corona. Lucien en ik hadden daaral gelijk een heel duidelijk idee bij. We wouden een kaart maken die in een soort timelapse liet zien hoe corona zich over de wereld heeft verspreid. We hebben dit gedaan door een hoogkwaliteit kaart te downloaden en vervolgens een Json file te downloaden met alle data in verband met corona die we eventueel nodig zouden hebben. Daarna hebben we voor elk land de coördinaten op de kaart gegeven. daarna moesten we er nog voor zorgen dat er een timelapse kwam en dat de cirkels van grootte en kleur veranderden. dat hebben we gedaan met deze code:
+
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+using UnityEngine;
+using UnityEngine.UI;
+using SimpleJSON;
+using System;
+
+public class WorldScript : MonoBehaviour
+{
+
+    public static WorldScript Instance { set; get; }
+
+    Animator anim;
+
+    public Gradient amount;
+
+    [System.Serializable]
+    public class Date {
+
+        public string date;
+        public int worldData;
+        public List<string> countryName = new List<string>();
+        public List<int> countryData = new List<int>();
+    }
+
+    public List<Date> date;
+    public List<GameObject> Country;
+    public GameObject Holder;
+
+    int maxInfections = 0;
+    public int currentDate = 120;
+    public GameObject Template;
+    public Camera mainCam;
+    public InputField input;
+    public Text maxInfection;
+    public Text dateText;
+    public Slider timeline;
+    public LineRenderer graph;
+    bool play = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Instance = this;
+
+        int currentDate = -1;
+        string[] jsonFile = System.IO.File.ReadAllLines("csvjson.json");
+        for (int i = 0; i < jsonFile.Length; i++)
+        {
+            string line = jsonFile[i];
+            if (line.Contains("date")) {
+                date.Add(new Date());
+                currentDate += 1;
+                date[currentDate].date = line.Substring(line.IndexOf("\"date\": \"") + 9, 10);
+            }
+            else if (line.Contains("World"))
+            {
+                date[currentDate].worldData = int.Parse(line.Substring(line.IndexOf("\"World\": ") + 9, line.Length - 14));
+            }
+            else if (line.Contains("{") || line.Contains("}") || line.Contains("[") || line.Contains("]"))
+            {
+
+            }
+
+            else
+            {
+                string country = "";
+                string number = "";
+                for (int t = line.IndexOf("\"") + 1; t < line.Length; t++)
+                {
+                    if (line[t] == '\"') t = 1000;
+                    else country += line[t];
+                }
+                date[currentDate].countryName.Add(country);
+                for (int n = line.Length - 2; n > 0; n--)
+                {
+                    if (line[n] == '\"' || line[n] == ' ') n = 0;
+                    else number += line[n];
+
+                }
+                if (number == "") date[currentDate].countryData.Add(0);
+                else date[currentDate].countryData.Add(int.Parse(ReverseString(number)));
+            }
+        }
+        for (int c = 0; c < Holder.transform.childCount; c++)
+        {
+            Country.Add(Holder.transform.GetChild(c).gameObject);
+        }
+        anim = GetComponent<Animator>();
+
+        timeline.maxValue = date.Count -2;
+        maxInfections = 500000;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        maxInfection.text = "COVID-19 infections:\n" + date[currentDate].worldData;
+        dateText.text = new DateTime(int.Parse(date[currentDate].date.Split('-')[0]), int.Parse(date[currentDate].date.Split('-')[1]), int.Parse(date[currentDate].date.Split('-')[2])).ToString("m");
+        timeline.value = currentDate;
+    }
+
+    public void Play()
+    {
+        play = !play;
+        if (!play) StopCoroutine(Dates());
+        if(play) StartCoroutine(Dates());
+        
+    }
+
+    public IEnumerator Dates()
+    {
+        while(play && currentDate < date.Count -2)
+        {
+            LoadData(currentDate);
+            yield return new WaitForSeconds(0.1f);
+            currentDate += 1;
+        }
+        
+    }
+
+    public void Timeline()
+    {
+        currentDate = (int)timeline.value;
+        LoadData(currentDate);
+    }
+
+    public void Continent()
+    {
+        anim.SetBool(EventSystem.current.currentSelectedGameObject.name, !anim.GetBool(EventSystem.current.currentSelectedGameObject.name));
+    }
+
+    public string ReverseString(string s)
+    {
+        char[] arr = s.ToCharArray();
+        Array.Reverse(arr);
+        return new string(arr);
+    }
+
+    public void ChangeScale()
+    {
+        int.TryParse(input.text, out maxInfections);
+        LoadData(currentDate);
+    }
+
+    public void LoadData(int time)
+    {
+        float Xinterval = 400f / currentDate;
+        graph.positionCount = currentDate;
+        for (int d = 0; d < currentDate; d++)
+        {
+            graph.SetPosition(d, new Vector3(Xinterval * d, ((float)date[d].worldData / (float)date[currentDate].worldData) * 400f, 0));
+        }
+        float percentage = 0;
+        for(int i = 0; i < Country.Count; i++)
+        {
+            for(int c = 0; c < date[time].countryName.Count; c++)
+            {
+                if (date[time].countryName[c] == Country[i].name)
+                {
+                    percentage = Mathf.Log(date[time].countryData[c]) / Mathf.Log(maxInfections);
+                    if (percentage > 1f) percentage = 1f;
+                    if (percentage < 0f) percentage = 0f;
+                    Country[i].GetComponent<Image>().color = amount.Evaluate(percentage);
+                    Country[i].transform.localScale = new Vector3(percentage * 4f + 1, percentage * 4f + 1, 1);
+                }
+            }
+        }
+    }
+}
+```
