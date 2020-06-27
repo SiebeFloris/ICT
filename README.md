@@ -492,3 +492,6 @@ if _name_ == "_main_":
 ```
 
 
+###Corona kaart
+
+In blok 4 moesten we een project maken dat te maken had met data en corona. Lucien en ik hadden daaral gelijk een heel duidelijk idee bij. We wouden een kaart maken die in een soort timelapse liet zien hoe corona zich over de wereld heeft verspreid.
