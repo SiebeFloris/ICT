@@ -4,6 +4,7 @@ welkom op mijn projecten pagina van ICT in de wolken.
 in deze projecten hebben we gebruik gemaakt van de volgende websites:
 [C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/)
 [NEAT](https://neat-python.readthedocs.io/en/latest/)
+[Flappy AI](https://github.com/techwithtim/NEAT-Flappy-Bird/blob/master/flappy_bird.py)
 
 ### Microbit
 
